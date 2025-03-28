@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{ font-size: 3em;}
+h2{ font-size: 2em;}
+h3{ font-size: 1.8em;}
+p{ font-size: 1.25em;}
+
+body{
+    margin: 0 auto;
+    font-family: 'Verdana';
+    background-color:  #087a1c;
+    color:  #e6eee7 ;
+    padding: 20px;
+}
+
+img{
+    width: 450px;
+    height: 350px;
+    text-align: center;
+    object-fit: cover;
+}
+
+header{
+    font-size: large;
+    text-align: center;
+    padding: 40px;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.info-cancha{
+    padding: 15px, 30px;
+    text-align: center;
+}
+
+p{
+    padding: 5px;
+}
+
+button{
+    font-size: medium;
+    padding: 10px;
+}
