@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administradores</title>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <h1>Gestión de Administradores</h1>
+    
+    <h2>Agregar Administrador</h2>
+    <form id="adminForm">
+        <input type="text" id="username" placeholder="Usuario" required>
+        <input type="password" id="password" placeholder="Contraseña" required>
+        <button type="submit">Agregar</button>
+    </form>
+    
+    <h2>Lista de Administradores</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Usuario</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="adminList"></tbody>
+    </table>
+</body>
+</html>
