@@ -16,6 +16,7 @@ body{
     background-color:  #087a1c;
     color:  #e6eee7 ;
     padding: 20px;
+    background-image: url(/assets/img/estadio.jpg);
 }
 
 img{
@@ -33,6 +34,7 @@ header{
     padding: 50px;
     color: white;
 }
+
 header img{
     width: 25px;
     height: 25px;
@@ -43,6 +45,7 @@ header nav{
 }
 
 .container{
+    padding-top: 50px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
@@ -91,6 +94,7 @@ button:hover {
 .hora-container button{
     background-color:  #8c8988 ;
 }
+
 
 /*
 ESTILOS DEL FORMULARIO LOGIN COMIENZAN DESDE ACÁ !
