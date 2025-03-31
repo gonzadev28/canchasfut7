@@ -48,3 +48,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
 });
+// Función para cambiar el color al hacer clic
+function cambiarColor(event) {
+    // Cambiar el color de fondo del botón
+    event.target.style.backgroundColor = "#0056b3";
+}
+
+// Obtener todos los botones
+const botones = document.querySelectorAll('.boton');
+
+// Agregar el evento de clic a cada botón
+botones.forEach(boton => {
+    boton.addEventListener('click', cambiarColor);
+});
