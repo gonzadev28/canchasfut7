@@ -45,4 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     fetchAdmins(); // Inicializar la lista al cargar la página
+
+    
 });

@@ -2,13 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
-const path = require('path');  // Asegúrate de importar 'path'
-//se ejecuta con http://localhost:5000/admins.html
-// Inicializar la app de Express
+const path = require('path');  
+
+
 const app = express();
 const port = 5000;
 
-// Conectar a MongoDB
+// Conecta a mongoDB
 const mongoURI = 'mongodb+srv://CesarPainemal:cesarpainemal@clustercanchafut.ivvtwr0.mongodb.net/miBaseDeDatos?retryWrites=true&w=majority';
 
 mongoose.connect(mongoURI)
@@ -23,13 +23,12 @@ app.use(express.json()); // Middleware para procesar JSON
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Modelos
+
 const AdminSchema = new mongoose.Schema({
     username: String,
     password: String
 });
 const Admin = mongoose.model('Admin', AdminSchema);
-
-// CRUD de Admins (solo accesible por Superadmin)
 
 // Crear admin
 app.post('/superadmin/admins', async (req, res) => {
@@ -62,7 +61,51 @@ app.delete('/superadmin/admins/:id', async (req, res) => {
     await Admin.findByIdAndDelete(req.params.id);
     res.json({ message: 'Administrador eliminado correctamente' });
 });
+// Ruta de inicio de sesión para login ------------------------------------------
+app.post('/login', async (req, res) => {
+    const { username, password } = req.body;
 
+    // Buscar el admin por el nombre de usuario
+    const admin = await Admin.findOne({ username });
+    if (!admin) {
+        return res.status(400).json({ message: 'Usuario no encontrado' });
+    }
+
+    // Comparar la contraseña con la guardada en la base de datos
+    const isMatch = await bcrypt.compare(password, admin.password);
+    if (!isMatch) {
+        return res.status(400).json({ message: 'Contraseña incorrecta' });
+    }
+
+    // Si las credenciales son correctas, responder con un mensaje de éxito
+    res.status(200).json({ message: 'Login exitoso' });
+});
+//-------------------------------------------------------------------------------
+const CanchaSchema = new mongoose.Schema({
+    nombre: String
+});
+const Cancha = mongoose.model('Cancha', CanchaSchema);
+
+// Obtener todas las canchas
+app.get('/canchas', async (req, res) => {
+    const canchas = await Cancha.find();
+    res.json(canchas);
+});
+
+// Crear cancha
+app.post('/canchas', async (req, res) => {
+    const { nombre } = req.body;
+    const cancha = new Cancha({ nombre });
+    await cancha.save();
+    res.json({ message: 'Cancha agregada correctamente' });
+});
+
+// Eliminar cancha
+app.delete('/canchas/:id', async (req, res) => {
+    await Cancha.findByIdAndDelete(req.params.id);
+    res.json({ message: 'Cancha eliminada correctamente' });
+});
+//-------------------------------------------------------------------
 // Iniciar el servidor
 app.listen(port, () => {
     console.log(`Servidor corriendo en el puerto ${port}`);
