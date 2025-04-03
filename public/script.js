@@ -1,11 +1,12 @@
+//solo si está cargada
 document.addEventListener("DOMContentLoaded", () => {
     const adminForm = document.getElementById("adminForm");
     const adminList = document.getElementById("adminList");
 
     // Obtener administradores
     async function fetchAdmins() {
-        const res = await fetch("/superadmin/admins");
-        const admins = await res.json();
+        const res = await fetch("/superadmin/admins"); //petición al servidor
+        const admins = await res.json(); //convierte la respuesta a JSON
         adminList.innerHTML = ""; // Limpiar la lista
         admins.forEach(admin => {
             const row = document.createElement("tr");
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <button onclick="deleteAdmin('${admin._id}')">Eliminar</button>
                 </td>
             `;
-            adminList.appendChild(row);
+            adminList.appendChild(row); // Correcto: se eliminó el guion extra
         });
     }
 
@@ -45,9 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     fetchAdmins(); // Inicializar la lista al cargar la página
-
-    
 });
+
 // Función para cambiar el color al hacer clic
 function cambiarColor(event) {
     // Cambiar el color de fondo del botón

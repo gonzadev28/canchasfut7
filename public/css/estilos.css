@@ -16,7 +16,7 @@ body{
     background-color:  #087a1c;
     color:  #e6eee7 ;
     padding: 20px;
-    background-image: url(/assets/img/estadio.jpg);
+    background-image: url(/public/img/estadio.jpg);
 }
 
 img{

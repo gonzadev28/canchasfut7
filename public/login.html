@@ -1,37 +1,21 @@
-<form id="login-form">
-    <input type="text" id="username" placeholder="Usuario" required>
-    <input type="password" id="password" placeholder="Contraseña" required>
-    <button type="submit">Iniciar sesión</button>
-</form>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <form id="login-form">
+        <input type="text" id="username" placeholder="Usuario" required>
+        <input type="password" id="password" placeholder="Contraseña" required>
+        <button type="submit">Iniciar sesión</button>
+    </form>
 
-<div id="error-message" style="color: red; display: none;">Usuario o contraseña incorrectos.</div>
+    <div id="error-message" style="color: red; display: none;">
+        Usuario o contraseña incorrectos.
+    </div>
 
-<script>
-    document.getElementById('login-form').addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-
-        fetch('/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ username, password })
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.message === 'Login exitoso') {
-                // Si el login es exitoso, redirige a la página de administración
-                window.location.href = '/cancha.html'; // Redirige al html de cancha
-            } else {
-                // Si hay un error, muestra el mensaje
-                document.getElementById('error-message').style.display = 'block';
-            }
-        })
-        .catch(error => {
-            console.error('Error al hacer la solicitud:', error);
-        });
-    });
-</script>
+    <script src="login.js"></script> 
+</body>
+</html>
