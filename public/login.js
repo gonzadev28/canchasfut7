@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Respuesta del servidor:", data);
 
             if (response.ok) {
-                alert('Login exitoso');
+                alert('ACCESO CORRECTO');
                 
                 // Guardar el adminId en sessionStorage
                 sessionStorage.setItem("adminId", data.adminId);

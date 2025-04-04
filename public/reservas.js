@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const { disponible } = await dispResponse.json();
                 
                 if (disponible) {
-                    const usuario = prompt("Ingrese su nombre para reservar:");
+                    const usuario = prompt("INGRESE SU NOMBRE:");
                     if (usuario) {
                         // Obtener info completa de la cancha (incluyendo adminId)
                         const canchaResponse = await fetch(`/canchas/${canchaId}`);
