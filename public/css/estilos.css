@@ -94,3 +94,21 @@ button:hover {
 .hora-container button{
     background-color:  #8c8988 ;
 }
+
+/* ESTILOS PARA EL LOGIN.HTML*/
+#login-form input{
+    width: 180px;
+    height: 35px;
+}
+
+/* ESTILOS PARA EL CANCHA.HTML*/
+
+#add-cancha-form input{
+    width: 250px;
+    height: 35px;
+}
+
+#adminForm input{
+    width: 180px;
+    height: 35px;
+}

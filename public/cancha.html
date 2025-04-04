@@ -9,19 +9,22 @@
 </head>
 <body>
     <h1>Gestión de Canchas</h1>
-
+    <br>
+    <br>
     <h2>Agregar Cancha</h2>
+
     <form id="add-cancha-form">
-        <input type="text" id="cancha-name" placeholder="Nombre de la Cancha" required>
+        <input type="text" size="30" id="cancha-name" placeholder="Nombre de cancha" required>
         <input type="hidden" id="adminId">
         <button type="submit">Agregar</button>
     </form>
+    <br>
 
     <h2>Lista de Canchas</h2>
     <ul id="cancha-list"></ul> 
 
     <div id="error-message" style="color: red; display: none;">Hubo un problema al eliminar la cancha.</div>
-    <h2>Reservas de mis canchas</h2>
+    <h2>Mis reservas</h2>
     <div id="reservas-list">
     
 </div>
